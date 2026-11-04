@@ -1,4 +1,4 @@
-# Everything Roll Tide — V1.1 Mascot Edition
+# Everything Roll Tide — V1.2 Game Day & Traditions
 
 An **unofficial, football-only Alabama Crimson Tide fan app** dedicated to two lifelong friends. Built as a free mobile-friendly static web app for GitHub Pages.
 
@@ -19,7 +19,19 @@ https://james7477.github.io/everything-roll-tide/
 
 The entire working app, including the stadium elephant artwork, mascot badge, favicon, and touch icon, is **embedded inside `index.html`**. No image uploads, separate assets folder, server, npm build, or API keys are required.
 
-## V1.1 preview
+## New in V1.2 — November 4, 2026
+
+- Team scoring snapshot (2026, as of Nov 3) and detailed featured-player cards.
+- Game Day win-outlook calculations based on scored and allowed points plus a home-field adjustment. **This is a simplistic, uncalibrated fan model, not betting odds or an official prediction.**
+- Live daily stadium-area weather from Open-Meteo, when a forecast is available.
+- Officially sourced Alabama cheerleading history, championship wins, and fun facts.
+- Million Dollar Band history, formation, name origin and traditions.
+- Behind-the-scenes away-game logistics with **clearly dated 2011 and 2019 historical reporting**, not current 2026 cost claims.
+- New More Tide navigation tab; stadium elephant, dedication, games, history, trivia, and fan picks preserved.
+
+The site remains a single-file GitHub Pages app. Weather requires internet access; the sports data remains a fixed November 3 snapshot until a verified sports API is connected.
+
+## Original features
 
 - Football-only season dashboard and fixed November 3, 2026 schedule/results
 - Selected 2026 player cards and statistics
