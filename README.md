@@ -1,58 +1,48 @@
 # Everything Roll Tide — V1.1 Mascot Edition
 
-A free, mobile-friendly, **unofficial Alabama football fan companion** made with HTML, CSS, and JavaScript. No paid hosting, API key, or database is required for this preview.
+An **unofficial, football-only Alabama Crimson Tide fan app** dedicated to two lifelong friends. Built as a free mobile-friendly static web app for GitHub Pages.
 
-## New in V1.1
+## Open the app
 
-- Original stadium elephant artwork prominently featured on the **Home** screen.
-- New mascot-style round badge in the header and mobile bookmark icon.
-- Alternate full-page mascot poster in `artwork/` for inspiration; it is **not** a live or clickable app screen.
-- No changes to original football features or the anonymous dedication.
+Once GitHub Pages is enabled, the app address will be:
 
-## Dedication
+https://james7477.github.io/everything-roll-tide/
 
-A dedicated tribute appears immediately beneath the main banner on the **Home** page. It celebrates two friends who love Alabama football, without naming them. The dedication is intentionally anonymous.
+**Status:** Source files are committed to GitHub. Pages publishing must be enabled once in repository settings before the address works.
 
-## Preview features
+## Enable GitHub Pages
 
-- Crimson Tide home dashboard with **2026 snapshot as of November 3, 2026**
-- All 12 regular-season games, wins/losses and opponent filtering
-- LSU game countdown (November 7, 2026, 2:30 PM Central)
-- Select players from the 2026 official Alabama roster, plus featured Keelon Russell statistics
-- Football history timeline and a limited, sourced question-and-answer library
-- Playable six-question Tide trivia
-- Friendly Auburn emergency button
-- Two-friend score prediction feature saved **locally in the same browser**
-- Links to official Alabama Athletics schedule, roster and championship records
+1. Open https://github.com/James7477/everything-roll-tide/settings/pages
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Choose branch **main**, directory **/(root)**, and click **Save**.
+4. Return to the Pages page and use the link GitHub provides.
 
-## Publish with GitHub Pages
+The entire working app, including the stadium elephant artwork, mascot badge, favicon, and touch icon, is **embedded inside `index.html`**. No image uploads, separate assets folder, server, npm build, or API keys are required.
 
-1. Create a new GitHub repository named `everything-roll-tide` (or your favorite name).
-2. Upload **index.html**, **favicon.svg**, and the **assets** folder from this folder into the repository's **root directory**. Keep the files inside `assets/` together. (Upload the files inside this ZIP, not the ZIP itself.)
-3. Commit the files.
-4. In the repository, open **Settings → Pages → Build and deployment**.
-5. Choose **Deploy from a branch**, branch **main**, folder **/(root)**, then save.
-6. Your public address will normally be `https://YOUR-USERNAME.github.io/everything-roll-tide/` once GitHub publishes it.
+## V1.1 preview
 
-## Accuracy and limitations
+- Football-only season dashboard and fixed November 3, 2026 schedule/results
+- Selected 2026 player cards and statistics
+- Alabama football history timeline and a curated question-and-answer library
+- Six-question trivia challenge
+- Auburn Emergency Button
+- Game predictions stored locally in the visitor's browser
+- A personal dedication honoring **two friends** without names
+- Original stadium elephant and round elephant mascot
 
-- Football data is a **fixed November 3, 2026 snapshot** from Alabama Athletics and does **not** auto-refresh yet.
-- Trivia and answer-library questions work; this is **not an AI chatbot** or open-ended factual search.
-- Player section is a featured subset, not a full stats database.
-- Picks are saved with browser `localStorage` and **do not synchronize across phones**. Shared friend competition will need an online data store or another service.
-- This is not an official Alabama Athletics application. Do not copy university logos, licensed photos or media without permission.
+## Limitations
 
-## Sources
+- **Not live sports data:** Scores and roster facts are a historical snapshot dated November 3, 2026.
+- **Not a true AI chatbot:** Football questions use a limited built-in answer library.
+- **Not synced between phones:** Predictions use browser local storage, not a shared database.
+- This fan project is **not affiliated with the University of Alabama**. Do not use university marks or copyrighted material without appropriate permission.
 
-- Schedule: https://rolltide.com/sports/football/schedule
-- Roster: https://rolltide.com/sports/football/roster
-- Keelon Russell: https://rolltide.com/sports/football/roster/russell-keelon/17477
-- Championship history: https://rolltide.com/sports/2016/6/10/trads-national-championships-html
+## Official reference websites
 
-## Next steps
+- https://rolltide.com/sports/football/schedule
+- https://rolltide.com/sports/football/roster
+- https://rolltide.com/sports/2016/6/10/trads-national-championships-html
 
-1. Test mobile layout and verify data.
-2. Add updates from a dependable licensed or permitted college football data provider.
-3. Expand all player statistics and game box scores.
-4. Make two-friend predictions work across devices using a backend.
-5. Add a sourced AI Alabama football Q&A feature only when the backend, cost and key-security arrangements are established.
+### Next development
+
+Verify mobile layout on both friends' phones, connect permissible updated football scores and player stats, and add a properly sourced football AI assistant.
