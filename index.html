@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="data:," />
   <style>
     .builder-credit{display:block;padding:8px 12px 0;text-align:left;color:#f4d9a9;font-weight:800;font-size:12px;letter-spacing:.6px}
-        :root { color-scheme:dark; --bg:#080a10;--panel:#121720;--panel2:#181e29;--ink:#fff9f5;--muted:#abb3c0;--line:rgba(255,255,255,.10);--crimson:#b81d4b;--hot:#e23c6a;--gold:#edc989;--ok:#7bdfb1;--red:#ff8b91;--shadow:0 18px 55px rgba(0,0,0,.25); }
+            :root { color-scheme:dark; --bg:#080a10;--panel:#121720;--panel2:#181e29;--ink:#fff9f5;--muted:#abb3c0;--line:rgba(255,255,255,.10);--crimson:#b81d4b;--hot:#e23c6a;--gold:#edc989;--ok:#7bdfb1;--red:#ff8b91;--shadow:0 18px 55px rgba(0,0,0,.25); }
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top right,rgba(140,17,53,.23),transparent 520px),var(--bg)}button,input,select{font:inherit}button{cursor:pointer}a{color:#ffd8e2}a:hover{color:white}.app{max-width:1160px;margin:auto;padding:0 20px 120px}
     .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;min-height:85px}.brand{display:flex;align-items:center;gap:13px}.monogram{display:grid;place-items:center;width:47px;height:47px;border-radius:14px;font-family:Georgia,serif;font-size:23px;font-weight:900;color:white;background:linear-gradient(145deg,#e83968,#810d30);border:1px solid #ff7896;box-shadow:0 6px 25px #a80f3f48}.brand b{font-size:16px;letter-spacing:.6px;display:block}.brand small{color:var(--muted);font-size:11px;letter-spacing:1.25px;font-weight:700}.pill{border:1px solid var(--line);border-radius:50px;padding:10px 14px;color:var(--muted);font-size:12px;white-space:nowrap;background:#1b1a20}
     .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 20px}.tab{border:1px solid transparent;color:#c7cad2;background:transparent;border-radius:11px;padding:10px 14px;font-weight:700}.tab.active{background:#ac1942;color:white;box-shadow:0 7px 25px #9a16413a}.tab:hover:not(.active){background:#22242b}
@@ -80,6 +80,22 @@
 @media(max-width:900px){.feature-links{grid-template-columns:repeat(2,minmax(0,1fr))}.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.travel-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.prob-grid,.history-grid,.travel-steps{grid-template-columns:1fr}.feature-links{grid-template-columns:repeat(2,minmax(0,1fr))}.feature-link{padding:13px}.deep-card{padding:17px}.bottom-nav{grid-template-columns:repeat(6,minmax(0,1fr));padding-left:3px;padding-right:3px}.navitem{font-size:9px;gap:2px;padding:7px 1px}.navitem span{font-size:17px}.pill{display:none}}
 
+
+    /* V1.3: a small, discoverable story below the stadium elephant */
+    .elephant-story{margin:14px 0 0;border:1px solid #a84262;background:linear-gradient(135deg,#331322,#151922);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+    .elephant-story[hidden]{display:none}
+    .elephant-story h2{margin:0 0 8px;color:#fff;font-family:Georgia,serif;font-size:clamp(23px,4vw,31px)}
+    .elephant-story .story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+    .elephant-story .story-tile{background:#ffffff08;border:1px solid #ffffff25;padding:16px;border-radius:13px}
+    .elephant-story .story-tile b{color:#f6c49d;font-size:14px}
+    .elephant-story p{margin:7px 0 0;line-height:1.65;color:#f5e0e5;font-size:14px}
+    .elephant-story .story-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+    .elephant-story .story-links a{font-size:13px;font-weight:800}
+    .answer .answer-question{display:block;color:#ffe0b1;font-size:13px;font-weight:850;margin-bottom:8px}
+    .answer .answer-text{white-space:pre-wrap;margin:0 0 10px;color:#fff;font-size:14px}
+    .answer a{font-size:13px;font-weight:800;color:#ffbdcc}
+    .answer .answer-source-note{display:block;margin-top:9px;color:#acb5c3;font-size:11px}
+    @media (max-width:680px){.elephant-story .story-grid{grid-template-columns:1fr}.elephant-story{padding:16px}.hero-actions #elephantToggle{width:100%;justify-content:center}}
   </style>
 </head>
 <body>
@@ -96,8 +112,19 @@
   <section class="screen active" id="home">
    <div class="hero">
       <div class="hero-art"><img src="data:," alt="Powerful tusked elephant wearing a crimson football jersey under stadium lights" fetchpriority="high" /></div>
-      <div class="hero-content"><div class="eyebrow">Tuscaloosa, Alabama · Since 1892</div><h1>Everything<br>Roll Tide.</h1><p>Alabama football. All season long. The history, the players, the games, and the rivalry that never gets old.</p><div class="hero-actions"><button class="btn" data-goto="schedule">🏈 Explore the season</button><button class="btn outline" data-goto="fun">🔥 Fan Zone</button></div></div>
+      <div class="hero-content"><div class="eyebrow">Tuscaloosa, Alabama · Since 1892</div><h1>Everything<br>Roll Tide.</h1><p>Alabama football. All season long. The history, the players, the games, and the rivalry that never gets old.</p><div class="hero-actions"><button class="btn" data-goto="schedule">🏈 Explore the season</button><button class="btn outline" data-goto="fun">🔥 Fan Zone</button><button class="btn outline" type="button" id="elephantToggle" aria-controls="elephantStory" aria-expanded="false">🐘 Why the Elephant?</button></div></div>
      </div>
+
+   <section class="elephant-story" id="elephantStory" hidden aria-labelledby="elephantStoryTitle">
+     <h2 id="elephantStoryTitle">🐘 Why is Alabama's mascot an elephant?</h2>
+     <p>The team is called the <b>Crimson Tide</b>, but its famous elephant represents a story about the power of Alabama football.</p>
+     <div class="story-grid">
+       <article class="story-tile"><b>1930 · The Red Elephants</b><p>During Alabama's game against Ole Miss, the enormous varsity squad impressed the crowd. A fan reportedly called out, “Hold your horses, the elephants are coming!” Sportswriter Everett Strupper retold the scene, and writers began calling the crimson-clad players the <b>Red Elephants</b>.</p></article>
+       <article class="story-tile"><b>1979 · Big Al Arrives</b><p>The elephant symbol became part of Alabama tradition decades before the familiar costume. According to the university, the costumed mascot <b>Big Al</b> debuted at the 1979 Sugar Bowl. There are other early elephant stories, too; the 1930 account is the one Alabama Athletics tells.</p></article>
+       <article class="story-tile"><b>The Band &amp; Cheerleaders</b><p>Yes! Big Al is Alabama's university mascot, not a separate mascot for each group. The <b>Million Dollar Band</b> and cheerleaders share that spirit. They're part of the <b>Elephant Stomp</b>, a pregame gathering at Gorgas Library where the band performs and cheerleaders lead fans.</p></article>
+     </div>
+     <div class="story-links"><a href="https://rolltide.com/sports/2016/6/10/big-al" target="_blank" rel="noopener">Alabama Athletics: Big Al's history ↗</a><a href="https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/" target="_blank" rel="noopener">UA: Elephant Stomp &amp; Million Dollar Band ↗</a><button class="btn secondary" id="elephantAsk" type="button">Ask another Alabama history question →</button></div>
+   </section>
    <aside class="dedication" aria-label="Dedication to the fans"><div class="dedication-label">🐘 A Special Dedication 🐘</div><p>Dedicated to the fans who share a lifelong love for Alabama football. Through every touchdown, every rivalry, every victory, and every tough Saturday — Roll Tide Roll!</p><div class="dedication-signoff">ROLL TIDE ROLL</div></aside>
    <section class="section"><div class="section-heading"><h2>2026 Tide Tracker</h2><span class="subtle">Updated snapshot · Nov 3, 2026</span></div><div class="grid">
     <div class="metric"><small>Overall record</small><strong>6–2</strong><small>75% win rate</small></div><div class="metric"><small>SEC record</small><strong>4–2</strong><small>Conference games</small></div><div class="metric"><small>Last result</small><strong class="accent">W 31–20</strong><small>vs Texas A&amp;M</small></div><div class="metric"><small>Games remaining</small><strong>4</strong><small>Regular season</small></div>
@@ -120,9 +147,9 @@
   <section class="screen" id="players"><p class="eyetext">The Locker Room</p><h1 class="page-title">Crimson Tide Players</h1><p class="section-intro">Browse a selection of 2026 players by name or position. All names, jersey numbers and positions are from the official Alabama roster. Tap a player card’s Season stat breakdown for sourced 2026 details. Statistics are a November 3 snapshot, not live.</p><input id="playerSearch" class="searchbar" placeholder="Search by player, number, or position…" aria-label="Search players" /><div class="toolbar" id="playerFilters"><button class="chip active" data-position="all">All</button><button class="chip" data-position="QB">QB</button><button class="chip" data-position="RB">RB</button><button class="chip" data-position="WR">WR</button><button class="chip" data-position="DB">Defense</button></div><div class="players" id="playerList"></div><p class="fine">Showing a featured subset, not the entire roster. <a href="https://rolltide.com/sports/football/roster" target="_blank" rel="noopener">See the complete official 2026 roster ↗</a></p></section>
   <section class="screen" id="history"><p class="eyetext">The Crimson Archives</p><h1 class="page-title">Alabama Football History</h1><div class="grid"><div class="metric"><small>First season</small><strong>1892</strong><small>125+ years of tradition</small></div><div class="metric"><small>Claimed national titles</small><strong>18</strong><small>As listed by Alabama</small></div><div class="metric"><small>2020 season</small><strong>13–0</strong><small>Unbeaten champions</small></div><div class="metric"><small>Home field</small><strong style="font-size:19px">Bryant-Denny</strong><small>Tuscaloosa</small></div></div>
    <section class="section two"><article class="card"><h3>Historic Milestones</h3><div class="timeline"><div class="event"><b>1892</b><h3>The program begins</h3><p>Alabama plays its first football season.</p></div><div class="event"><b>1925</b><h3>First claimed national title</h3><p>The beginning of a championship tradition.</p></div><div class="event"><b>1958–1982</b><h3>The Bear Bryant era</h3><p>Paul “Bear” Bryant builds a legendary football dynasty.</p></div><div class="event"><b>1992</b><h3>Another national championship</h3><p>Gene Stallings leads Alabama to a title-winning season.</p></div><div class="event"><b>2009</b><h3>The Saban dynasty rises</h3><p>Alabama wins its first national title under Nick Saban.</p></div><div class="event"><b>2020</b><h3>18th claimed championship</h3><p>Alabama completes an unbeaten 13–0 season, beating Ohio State 52–24 in the title game played in January 2021.</p></div></div></article>
-   <article class="card"><h3>Ask About Alabama Football</h3><p class="subtle">Try a question! This preview includes a small sourced football fact library. A true open-ended AI football expert can be connected later.</p><div class="faq"><button data-faq="titles">How many national championships?</button><button data-faq="first">When did football start?</button><button data-faq="stadium">Where does Alabama play?</button><button data-faq="2020">Who won the 2020 championship?</button><button data-faq="coach">Who's the 2026 coach?</button><button data-faq="iron">What is the Iron Bowl?</button></div><div class="answer" id="faqAnswer" role="status">Pick a question above to see a fact-checked answer.</div><div class="formfield" style="margin-top:18px"><label for="askQuestion">Or type your own question</label><input id="askQuestion" placeholder="Example: Who was Bear Bryant?" /></div><button class="btn" id="askBtn">Ask the Tide historian →</button><p class="fine">If the fact library does not know the answer, it will point you to a reliable research source instead of inventing one.</p></article></section>
+   <article class="card"><h3>Ask About Alabama Football</h3><p class="subtle">Try a question! This preview includes a small sourced football fact library. A true open-ended AI football expert can be connected later.</p><div class="faq"><button data-faq="elephant">Why the elephant mascot?</button><button data-faq="band">Why Million Dollar Band?</button><button data-faq="spirit">Do band and cheerleaders use Big Al?</button><button data-faq="titles">How many national championships?</button><button data-faq="heisman">Who won Alabama's Heismans?</button><button data-faq="crimson">Why are they called Crimson Tide?</button><button data-faq="first">When did football start?</button><button data-faq="iron">What is the Iron Bowl?</button></div><div class="formfield" style="margin-top:18px"><label for="askQuestion">Ask an Alabama football question</label><input id="askQuestion" placeholder="Example: When did Big Al first appear?" autocomplete="off" /></div><button class="btn" id="askBtn" type="button">Ask the Tide historian →</button><div class="answer" id="faqAnswer" role="status" aria-live="polite"><span class="answer-question">Your question and answer appear here.</span><p class="answer-text">Choose a suggested question or type your own above.</p></div><p class="fine">Expanded, source-linked offline fact library. This is not a live AI chatbot. When a question can't be verified here, the app won't invent an answer.</p></article></section>
   </section>
-  <section class="screen" id="fun"><p class="eyetext">For The Real Fans</p><h1 class="page-title">Fan Zone</h1><p class="section-intro">A few fun extras for your two die-hard Alabama buddies — trivia, gameday predictions, and rivalry laughs.</p><section class="two"><article class="card"><h3>🏆 Tide Trivia</h3><p class="subtle">Test how much you really know about Alabama football.</p><div id="quizArea"><div class="quizmeta" id="quizProgress"></div><div class="quizquestion" id="quizQuestion"></div><div id="quizChoices"></div><p id="quizFeedback" class="subtle" aria-live="polite"></p><button id="quizNext" class="btn" style="display:none;margin-top:10px">Next question →</button></div></article>
+  <section class="screen" id="fun"><p class="eyetext">For The Real Fans</p><h1 class="page-title">Fan Zone</h1><p class="section-intro">Fun for all Alabama fans — trivia, gameday predictions, and rivalry laughs.</p><section class="two"><article class="card"><h3>🏆 Tide Trivia</h3><p class="subtle">Test how much you really know about Alabama football.</p><div id="quizArea"><div class="quizmeta" id="quizProgress"></div><div class="quizquestion" id="quizQuestion"></div><div id="quizChoices"></div><p id="quizFeedback" class="subtle" aria-live="polite"></p><button id="quizNext" class="btn" style="display:none;margin-top:10px">Next question →</button></div></article>
    <article class="card"><h3>🏈 Game Pick Challenge</h3><p class="subtle">Your friends can each enter a predicted Alabama–LSU score. Predictions are saved in this browser, not shared across devices yet.</p><form id="pickForm"><div class="formgrid"><div class="formfield"><label for="fanName">Fan nickname</label><input id="fanName" maxlength="24" required placeholder="Your nickname" /></div><div class="formfield"><label for="pickBama">Bama score</label><input id="pickBama" type="number" min="0" max="150" required placeholder="31" /></div><div class="formfield"><label for="pickOpponent">LSU score</label><input id="pickOpponent" type="number" min="0" max="150" required placeholder="17" /></div></div><button class="btn" type="submit">Save my prediction</button></form><div class="picks" id="picksList"></div><p class="fine">For fun and bragging rights only. The first version does not have online accounts, shared leaderboards, or automated scoring.</p></article></section>
    <section class="section two"><article class="card"><h3>🚨 Auburn Emergency Protocol</h3><p>Someone in the room said “War Eagle” again? Activate the countermeasure.</p><button class="btn" id="auburnFun">Activate Roll Tide mode</button><div class="answer" id="auburnFunMessage" aria-live="polite">Status: all clear. No Auburn fans detected.</div></article><article class="card"><h3>📣 Offseason Headquarters</h3><p class="subtle">Follow official football updates throughout the year — spring practice, A-Day, signings and roster changes. These are links in version one, not automatic news feeds.</p><div class="offlinks"><a href="https://rolltide.com/sports/football" target="_blank" rel="noopener">Football News<span>Alabama Athletics ↗</span></a><a href="https://rolltide.com/sports/football/roster" target="_blank" rel="noopener">Roster Watch<span>Official players ↗</span></a></div></article></section>
   </section>
@@ -235,10 +262,87 @@ function renderGames(){const root=document.getElementById('gameList'),arr=games.
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{scheduleFilter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));renderGames();}));
 function renderPlayers(){let q=document.getElementById('playerSearch').value.trim().toLowerCase();let arr=players.filter(p=>(playerFilter==='all'||p.p===playerFilter||(playerFilter==='DB'&&['LB','DB','DL'].includes(p.p)))&&(`${p.n} ${p.j} ${p.p}`.toLowerCase().includes(q)));document.getElementById('playerList').innerHTML=arr.length?arr.map(p=>`<article class="player"><div class="player-head"><span class="jersey">#${p.j}</span><span class="position">${p.p}</span></div><h3>${escapeHTML(p.n)}</h3><p>${escapeHTML(p.c)} · 2026 roster</p>${p.stat?`<div class="player-stat">${escapeHTML(p.stat)}<br><span class="source">As of Nov 3, 2026</span></div>`:''}<a target="_blank" rel="noopener" href="${p.url||'https://rolltide.com/sports/football/roster'}">Official roster ↗</a></article>`).join(''):'<p class="subtle">No players match your search.</p>';}
 document.querySelectorAll('[data-position]').forEach(b=>b.addEventListener('click',()=>{playerFilter=b.dataset.position;document.querySelectorAll('[data-position]').forEach(x=>x.classList.toggle('active',x===b));renderPlayers();}));document.getElementById('playerSearch').addEventListener('input',renderPlayers);
-function answer(k){document.getElementById('faqAnswer').textContent=facts[k]||'That question is not in the free preview fact library yet. For verified information, see the official Alabama football history and roster pages linked below.';}
-document.querySelectorAll('[data-faq]').forEach(b=>b.addEventListener('click',()=>answer(b.dataset.faq)));
-function ask(){const q=document.getElementById('askQuestion').value.toLowerCase().trim();if(!q){answer(null);return;}let k=null;if(/championship|national title|how many titles/.test(q))k='titles';else if(/bear|bryant coach/.test(q))k='bear';else if(/saban/.test(q))k='saban';else if(/iron bowl|auburn/.test(q))k='iron';else if(/stadium|where.*play|home field/.test(q))k='stadium';else if(/when.*(start|begin)|first.*season|1892/.test(q))k='first';else if(/2020|ohio state/.test(q))k='2020';else if(/keelon|russell/.test(q))k='russell';else if(/coach|deboer/.test(q))k='coach';else if(/schedule|record|next game|lsu/.test(q))k='schedule';answer(k);}
-document.getElementById('askBtn').addEventListener('click',ask);document.getElementById('askQuestion').addEventListener('keydown',e=>{if(e.key==='Enter')ask()});
+// Expanded, source-linked football library. Every answer is a known, dated fact—not an invented AI result.
+const expandedFacts = {
+  elephant:{answer:'Alabama got its elephant tradition in 1930. After a powerful, unusually large Alabama varsity team appeared against Ole Miss, a fan reportedly shouted that the elephants were coming. Atlanta Journal sportswriter Everett Strupper recounted it, and writers began calling the crimson-clad squad the Red Elephants. The costumed Big Al debuted at the 1979 Sugar Bowl. The university notes that other early origin stories exist.',source:'https://rolltide.com/sports/2016/6/10/big-al',label:'Official Big Al history'},
+  spirit:{answer:'Big Al is Alabama’s school mascot, not a different mascot for the band or cheerleaders. The Million Dollar Band and cheerleaders share Alabama’s elephant tradition. They join pregame festivities such as the Elephant Stomp on the Gorgas Library steps, often alongside Big Al.',source:'https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/',label:'University of Alabama traditions'},
+  band:{answer:'The Million Dollar Band began in 1912 with 14 members. Its famous name arose after a 1920s Alabama football loss to Georgia Tech, when an Alabama supporter praised the band despite the disappointing football result. It performs at football games and leads traditions such as the Elephant Stomp.',source:'https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/',label:'Million Dollar Band history'},
+  stomp:{answer:'The Elephant Stomp is an Alabama pregame tradition at the Gorgas Library steps. The Million Dollar Band plays and the cheerleading squad leads the crowd; Big Al also participates in the celebration. It is a shared Alabama game-day tradition.',source:'https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/',label:'UA game-day traditions'},
+  cheer:{answer:'Alabama’s cheerleading squad supports the football team and joins the Million Dollar Band for the Elephant Stomp pregame gathering. Big Al is the university mascot used across Alabama athletics, rather than a separate cheerleading mascot.',source:'https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/',label:'UA spirit traditions'},
+  crimson:{answer:'According to the University of Alabama, the “Crimson Tide” nickname is associated with Alabama’s muddy 6–6 tie against Auburn in 1907. A sportswriter reportedly used the phrase for the crimson-stained team; the story has become part of university tradition.',source:'https://www.ua.edu/about/traditions/',label:'University of Alabama traditions'},
+  heisman:{answer:'Alabama’s four Heisman Trophy winners listed in its football record book through 2025 are Mark Ingram (2009), Derrick Henry (2015), DeVonta Smith (2020), and Bryce Young (2021). For more recent awards, verify the official Alabama records.',source:'https://rolltide.com/documents/download/2025/7/28/2025_Record_Book.pdf',label:'Alabama football record book'},
+  walk:{answer:'During the Walk of Champions, the football team arrives on buses outside the north side of Bryant-Denny Stadium and walks through a crowd of fans into the stadium, usually around two and a half hours before kickoff. The walkway honors Alabama championship history.',source:'https://rolltide.com/sports/2020/2/19/football-a-z-index',label:'Alabama game-day guide'},
+  road:{answer:'Getting Alabama to an away game involves transporting football equipment, medical supplies, players, coaches, support staff, and uniforms, along with arranging buses, hotels, meals, and schedules. The app’s More Tide → Away Games section includes documented historical examples, not assumed present-day travel costs.',source:'https://rolltide.com/sports/football/schedule',label:'Alabama football'},
+  weather:{answer:'Open More Tide → Game Day Intelligence for stadium-area weather when the forecast is available. Conditions and forecasts can change, so check the date and time shown in the app.',source:'https://rolltide.com/sports/football/schedule',label:'Official game schedule'},
+  roster:{answer:'Open Players to browse the featured roster and expanded stat cards. For a complete, updated roster and verified player details, use Alabama Athletics’ official football roster.',source:'https://rolltide.com/sports/football/roster',label:'Official Alabama roster'},
+  trivia:{answer:'Open Fan Zone to play Tide Trivia and submit a score prediction. Predictions in this preview are stored in your browser, not shared between fans.',source:'https://rolltide.com/sports/football/schedule',label:'Alabama football schedule'}
+};
+const factSources={
+  titles:['https://rolltide.com/sports/2016/6/10/trads-national-championships-html','Alabama national championships'],
+  first:['https://rolltide.com/sports/football','Alabama football history'],
+  stadium:['https://rolltide.com/sports/2020/2/19/football-a-z-index','Stadium and game-day information'],
+  '2020':['https://rolltide.com/sports/2016/6/10/trads-national-championships-html','Championship history'],
+  coach:['https://rolltide.com/sports/football/roster','Current coaching and roster'],
+  iron:['https://rolltide.com/sports/football/schedule','Official football schedule'],
+  bear:['https://www.ua.edu/about/traditions/','Alabama traditions'],
+  saban:['https://rolltide.com/sports/2016/6/10/trads-national-championships-html','Championship history'],
+  russell:['https://rolltide.com/sports/football/roster','Player profiles'],
+  schedule:['https://rolltide.com/sports/football/schedule','Official football schedule']
+};
+function lookupFootballQuestion(input){
+  const q=String(input||'').toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+  if(!q)return null;
+  // More specific related questions are checked before broad topic names.
+  if(/(elephant stomp|stomp at gorgas|gorgas.*stomp)/.test(q))return 'stomp';
+  if(/(elephant|big al|mascot|red elephants|elefant)/.test(q)&&/(band|cheer|same mascot|shared)/.test(q))return 'spirit';
+  if(/(elephant|elephants|big al|mascot|red elephants|elefant)/.test(q))return 'elephant';
+  if(/(marching band|million dollar band|crimsonettes|band name|band history|bama band|the band)/.test(q))return 'band';
+  if(/(cheerleader|cheerleading|chearleader|cheer squad|cheerleaders|spirit squad)/.test(q))return 'cheer';
+  if(/(where.*crimson tide|why.*crimson tide|called crimson tide|tide nickname|name crimson tide|origin.*crimson tide)/.test(q))return 'crimson';
+  if(/(walk of champions|team walk|players.*enter.*stadium)/.test(q))return 'walk';
+  if(/(heisman|devonta smith|bryce young|derrick henry|mark ingram)/.test(q))return 'heisman';
+  if(/(keelon|russell)/.test(q))return 'russell';
+  if(/(nick saban|saban)/.test(q))return 'saban';
+  if(/(bear bryant|paul bryant)/.test(q))return 'bear';
+  if(/(iron bowl|auburn.*rival|rivalry.*auburn)/.test(q))return 'iron';
+  if(/(stadium|bryant denny|saban field|home field|where.*play)/.test(q))return 'stadium';
+  if(/(2020.*(championship|season|title)|championship.*2020|ohio state.*2020)/.test(q))return '2020';
+  if(/(how many.*(titles|championships)|number.*championships|national championships|national titles|claimed titles)/.test(q))return 'titles';
+  if(/(first.*season|when.*(start|begin).*football|1892|beginning.*alabama football)/.test(q))return 'first';
+  if(/(2026 coach|current coach|head coach|who.*coach|deboer|kalen)/.test(q))return 'coach';
+  if(/(away game|team travel|equipment truck|road trip|transport|how.*travel)/.test(q))return 'road';
+  if(/(weather|forecast|temperature|rain|wind)/.test(q))return 'weather';
+  if(/(player stat|statistics|roster|depth chart|jersey|players)/.test(q))return 'roster';
+  if(/(schedule|next game|win loss|record|2026 season|lsu game|who.*play next)/.test(q))return 'schedule';
+  if(/(trivia|score picks|predictions|quiz)/.test(q))return 'trivia';
+  return null;
+}
+function answer(k,asked){
+  const output=document.getElementById('faqAnswer');
+  const question=asked||'Ask about Alabama football';
+  const item=expandedFacts[k]|| (facts[k]?{answer:facts[k],source:(factSources[k]||[])[0],label:(factSources[k]||[])[1]}:null);
+  output.replaceChildren();
+  const label=document.createElement('strong');label.className='answer-question';label.textContent='YOU ASKED: '+question;output.append(label);
+  const body=document.createElement('p');body.className='answer-text';body.textContent=item?item.answer:'I don’t have a verified answer to that question in the offline fact library yet. Try a question about Big Al, the band, cheerleaders, Alabama history, players, the Iron Bowl or the season schedule.';output.append(body);
+  const link=document.createElement('a');link.target='_blank';link.rel='noopener';link.href=item?.source||('https://www.google.com/search?q='+encodeURIComponent('site:rolltide.com '+question));link.textContent=item?'Read source: '+(item.label||'Alabama Athletics')+' ↗':'Search official Alabama Athletics pages ↗';output.append(link);
+  const note=document.createElement('small');note.className='answer-source-note';note.textContent='Built-in source-linked library • Not a live AI response • Stats are a Nov 3, 2026 snapshot';output.append(note);
+}
+document.querySelectorAll('[data-faq]').forEach(b=>b.addEventListener('click',()=>{const q=b.textContent.trim();document.getElementById('askQuestion').value=q;answer(b.dataset.faq,q)}));
+function ask(){const q=document.getElementById('askQuestion').value.trim();if(!q){answer(null,'Please enter a question');return;}answer(lookupFootballQuestion(q),q)}
+document.getElementById('askBtn').addEventListener('click',ask);
+document.getElementById('askQuestion').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();ask()}});
+const elephantToggle=document.getElementById('elephantToggle');
+const elephantStory=document.getElementById('elephantStory');
+elephantToggle.addEventListener('click',()=>{
+  const show=elephantStory.hidden;
+  elephantStory.hidden=!show;
+  elephantToggle.setAttribute('aria-expanded',String(show));
+  elephantToggle.textContent=show?'🐘 Hide the Elephant Story':'🐘 Why the Elephant?';
+  if(show)elephantStory.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('elephantAsk').addEventListener('click',()=>{
+  go('history');document.getElementById('askQuestion').value='Why does Alabama have an elephant mascot?';ask();
+});
 const trivia=[
  {q:'What year did Alabama football begin?',opts:['1882','1892','1902','1912'],correct:1,why:'Alabama played its first football season in 1892.'},
  {q:'Which Alabama rival plays in the Iron Bowl?',opts:['Tennessee','Georgia','Auburn','LSU'],correct:2,why:'The Iron Bowl is Alabama vs Auburn.'},
