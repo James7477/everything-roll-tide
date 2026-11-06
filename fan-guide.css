@@ -1,4 +1,4 @@
-/* Everything Roll Tide — V1.4 Fan Guide. Isolated styling; existing app remains untouched. */
+/* Everything Roll Tide — V1.6 depth, coach and stadium guide styling. */
 .guide-nav-link {white-space:nowrap}
 .guide-intro {margin:7px 0 20px;color:var(--muted,#bfc8d3);line-height:1.65}
 .guide-quicklinks {display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
@@ -44,4 +44,41 @@
 .guide-op b {display:block;margin-bottom:5px;color:#ffe2ea}
 .guide-op span {color:#c6cbd4;font-size:13px;line-height:1.5}
 .guide-stat-summary {padding:10px 12px;border-radius:10px;background:#27202e;color:#ebd6dd;margin:13px 0;font-size:13px}
-@media(max-width:680px){.guide-position-grid,.guide-two-cols,.guide-ops-grid{grid-template-columns:1fr}.guide-seat-entries{grid-template-columns:1fr 1fr}.guide-seat-entries label:first-child{grid-column:1 / -1}.guide-panel{padding:14px}.guide-nav-link{font-size:12px}.bottom-nav:has([data-tab="fanGuide"]){grid-template-columns:repeat(7,minmax(0,1fr));}.bottom-nav [data-tab="fanGuide"]{padding-left:1px;padding-right:1px;font-size:9px;min-width:0}}
+@media(max-width:680px){.guide-position-grid,.guide-two-cols,.guide-ops-grid{grid-template-columns:1fr}.guide-seat-entries{grid-template-columns:1fr 1fr}.guide-seat-entries label:first-child{grid-column:1 / -1}.guide-panel{padding:14px}.guide-nav-link{font-size:12px}}
+/* V1.6 — Dedicated coach listings and What's in the App / version history popup */
+#guideCoachesList .guide-op small{display:block;margin-top:7px;color:#eab6c7;font-size:11px;letter-spacing:.35px}
+.ert-info-launch{display:flex;justify-content:flex-end;align-items:center;margin:-6px 0 13px}
+.ert-info-button{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px solid #9a4864;background:#361929;color:#fff0f4;border-radius:14px;padding:10px 14px;font-weight:800;box-shadow:0 4px 15px #0002}
+.ert-info-button span{padding:3px 8px;background:#a52551;border-radius:8px;font-size:11px;color:#fff}
+.ert-info-button:focus-visible,.ert-info-close:focus-visible,.ert-info-dialog button:focus-visible{outline:3px solid #f9bace;outline-offset:3px}
+.ert-info-open{overflow:hidden}
+.ert-info-overlay[hidden]{display:none!important}
+.ert-info-overlay{position:fixed;z-index:100000;inset:0;background:#050309e8;display:flex;align-items:center;justify-content:center;padding:16px}
+.ert-info-dialog{width:min(100%,720px);max-height:min(94dvh,920px);overflow:auto;overscroll-behavior:contain;background:#151721;border:1px solid #ae526e;box-shadow:0 24px 100px #000c;border-radius:20px;color:#fff}
+.ert-info-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:23px 22px 14px;background:linear-gradient(115deg,#4b1029,#171722)}
+.ert-info-head small{font-size:10px;color:#f3c6d5;letter-spacing:1.4px;font-weight:900}
+.ert-info-head h2{margin:7px 0 6px;font-size:clamp(22px,4vw,30px)}
+.ert-info-head p{margin:0;font-size:13px;color:#f2c6d4}
+.ert-info-close{min-width:41px;min-height:41px;flex:none;background:#5d263e;border:1px solid #b46783;border-radius:12px;color:white;font-size:20px;font-weight:800}
+.ert-info-body{padding:14px 22px}
+.ert-info-body h3{margin:11px 0 13px;font-size:18px;color:#ffd3df}
+.ert-info-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:23px}
+.ert-info-features>div{background:#222532;border:1px solid #34394a;border-radius:11px;padding:13px;line-height:1.45}
+.ert-info-features b{display:inline-block;font-size:14px;margin-left:4px}
+.ert-info-features span{display:block;color:#c9ceda;font-size:12px;margin-top:5px}
+.ert-info-changelog{display:grid;gap:8px}
+.ert-info-changelog>div{border-left:3px solid #bd3b66;background:#20212e;border-radius:5px 11px 11px 5px;padding:10px 13px}
+.ert-info-changelog strong{font-size:13px;color:#ffe2ed}
+.ert-info-changelog p{color:#c5cbd5;font-size:12px;line-height:1.6;margin:5px 0 0}
+.ert-info-fine{color:#e8afbf;background:#331c2b;font-size:12px;line-height:1.6;border-radius:10px;padding:12px;margin:17px 0 3px}
+.ert-info-foot{border-top:1px solid #444152;padding:14px 22px 18px;display:flex;justify-content:flex-end}
+@media(max-width:680px){
+  .ert-info-overlay{padding:8px;align-items:stretch}
+  .ert-info-dialog{max-height:100%;width:100%;border-radius:14px}
+  .ert-info-features{grid-template-columns:1fr}
+  .ert-info-head{padding:18px 16px 13px}
+  .ert-info-body{padding:12px 16px}
+  .ert-info-foot{padding:12px 16px 15px}
+  .ert-info-launch{justify-content:center;margin:0 0 12px}
+  .ert-info-button{width:100%;justify-content:center}
+}
