@@ -1,4 +1,4 @@
-/* Everything Roll Tide Fan Guide V1.4 — isolated enhancement loaded after the existing app. */
+/* Everything Roll Tide V1.6 — separate depth chart, coaching staff, stadium guide, version dialog. */
 (function () {
   'use strict';
   const official = {
@@ -44,6 +44,22 @@
     ['Special Teams','Punt Return','Ryan Coleman-Williams','Dijon Lee Jr.','Rico Scott'],
     ['Special Teams','Kick Return','Lotzeir Brooks','Trae’shawn Brown','Dijon Lee Jr.']
   ];
+  const coaches = [
+    ['Kalen DeBoer','Head Coach','Leadership'],
+    ['Ryan Grubb','Offensive Coordinator','Offense'],
+    ['Bryan Ellis','Quarterbacks','Offense'],
+    ['Robert Gillespie','Assistant Head Coach / Running Backs','Offense'],
+    ['Adrian Klemm','Offensive Line','Offense'],
+    ['Derrick Nix','Wide Receivers','Offense'],
+    ['Richard Owens','Tight Ends','Offense'],
+    ['Kane Wommack','Defensive Coordinator','Defense'],
+    ['Jason Jones','Defensive Backs','Defense'],
+    ['Maurice Linguist','Co-Defensive Coordinator / Defensive Backs','Defense'],
+    ['Chuck Morrell','Linebackers','Defense'],
+    ['Freddie Roach','Associate Head Coach / Defensive Line','Defense'],
+    ['Christian Robinson','Outside Linebackers','Defense'],
+    ['Jay Nunez','Special Teams Coordinator','Special Teams']
+  ];
   const ticketRows = [
     ['East Carolina',60,30],['Florida State',150,125],['South Carolina',125,100],
     ['Georgia',225,225],['Texas A&M',200,200],['UT Chattanooga',60,30],['Auburn',205,205]
@@ -59,13 +75,13 @@
   const screen = document.createElement('section');
   screen.className='screen';screen.id='fanGuide';
   screen.innerHTML = `
-    <p class="eyetext">V1.4 · Fan Guide</p><h1 class="page-title">🏟 The Complete Tide Guide</h1>
-    <p class="guide-intro">First and second strings, the people behind the team, Bryant–Denny Stadium through the years, and an interactive seat-and-ticket guide. Dated facts are labeled, and official sources are one tap away.</p>
+    <p class="eyetext">V1.6 · Stadium Guide</p><h1 class="page-title">🏟 Stadium, Tickets &amp; Team Support</h1>
+    <p class="guide-intro">Bryant–Denny Stadium through the years, behind-the-scenes football operations, and an interactive seat-and-ticket guide. The 1st &amp; 2nd String depth chart has its own page.</p>
     <div class="guide-quicklinks">
-      <button type="button" data-jump="guide-depth">🏈 Two-Deep</button><button type="button" data-jump="guide-people">🩺 Team Support</button><button type="button" data-jump="guide-stadium">🏟 Stadium History</button><button type="button" data-jump="guide-seats">🪑 Find My Section</button><button type="button" data-jump="guide-tickets">🎫 Ticket Prices</button>
+      <button type="button" data-open-depth>🏈 1st &amp; 2nd String</button><button type="button" data-jump="guide-people">🩺 Team Support</button><button type="button" data-jump="guide-stadium">🏟 Stadium History</button><button type="button" data-jump="guide-seats">🪑 Find My Section</button><button type="button" data-jump="guide-tickets">🎫 Ticket Prices</button>
     </div>
     <section id="guide-depth" class="guide-panel">
-      <h2 class="guide-sub" style="margin-top:0">🏈 First & Second String — 2026</h2>
+      <h2 class="guide-sub" style="margin-top:0">🏈 Position-by-position depth chart</h2>
       <p class="guide-intro">Opening-week depth chart released September 4, 2026. These are listed players in the published order, <strong>not a claim about this week's injury-adjusted starters</strong>. Some positions are co-listed as “OR.”</p>
       <div class="guide-controls" id="depthFilters"><button type="button" data-depth="Offense" class="active">Offense</button><button type="button" data-depth="Defense">Defense</button><button type="button" data-depth="Special Teams">Special Teams</button></div>
       <input id="depthSearch" class="guide-input" placeholder="Find a player or position…" aria-label="Search depth chart" />
@@ -133,17 +149,48 @@
       <div class="guide-links">${link(official.tickets,'Official prices, availability and buying options')} ${link(official.map,'View seats before buying')}</div>
     </section>
   `;
+  // Move the depth-chart panel into its OWN screen. Keep the original Fan Zone untouched.
+  const depthBlock=screen.querySelector('#guide-depth');
+  if(!depthBlock)return;
+  const depthScreen=document.createElement('section');
+  depthScreen.className='screen';
+  depthScreen.id='depthChart';
+  depthScreen.innerHTML=`
+    <p class="eyetext">2026 Alabama Football · V1.6</p>
+    <h1 class="page-title">🏈 1st &amp; 2nd String</h1>
+    <p class="guide-intro">Offense, defense, and special teams — plus the Alabama coaching staff. The depth chart is the published September 4, 2026 opening-week lineup; it is <strong>not</strong> an automatically updated weekly starter list.</p>
+    <div class="guide-quicklinks">
+      <button type="button" data-depth-scroll="guide-depth">🏈 Players</button>
+      <button type="button" data-depth-scroll="guide-coaches">🎯 Coaches</button>
+      <button type="button" id="openStadiumGuide">🏟 Stadium &amp; Tickets</button>
+    </div>
+  `;
+  depthScreen.appendChild(depthBlock);
+  const coachesPanel=document.createElement('section');
+  coachesPanel.className='section guide-panel';
+  coachesPanel.id='guide-coaches';
+  coachesPanel.innerHTML=`<h2 class="guide-sub" style="margin-top:0">🎯 Alabama Football Coaches — 2026</h2>
+    <p class="guide-intro">The 14 coaches and their listed roles on Alabama Athletics' 2026 coaching staff directory. Staff assignments may change; use the official link for the newest information.</p>
+    <div class="guide-ops-grid" id="guideCoachesList"></div>
+    <div class="guide-links"><a href="https://rolltide.com/sports/football/coaches/2026" target="_blank" rel="noopener noreferrer">View official Alabama coaching staff ↗</a></div>`;
+  depthScreen.appendChild(coachesPanel);
   root.appendChild(screen);
+  root.appendChild(depthScreen);
   const tabs = document.querySelector('.tabs');
   if (tabs) {
-    const b=document.createElement('button');b.className='tab guide-nav-link';b.textContent='🏟 Fan Guide';b.type='button';b.dataset.tab='fanGuide';tabs.appendChild(b);
-    b.addEventListener('click',()=>activate());
+    const b=document.createElement('button');b.className='tab guide-nav-link';b.textContent='🏈 1st & 2nd String';b.type='button';b.dataset.tab='depthChart';tabs.appendChild(b);
+    b.addEventListener('click',()=>activateDepth());
   }
-  const bottom=document.querySelector('.bottom-nav');
-  if(bottom){const b=document.createElement('button');b.className='navitem';b.type='button';b.dataset.tab='fanGuide';b.innerHTML='<span>🏟</span>Guide';bottom.appendChild(b);b.addEventListener('click',()=>activate());}
+  // Do not add a seventh bottom tab: keep the original Fan Zone in its original position.
   const home=document.querySelector('#home .feature-links');
-  if(home){const b=document.createElement('button');b.className='feature-link';b.type='button';b.innerHTML='<span class="feature-icon">🏟🎫</span><strong>Stadium, Seats &amp; Tickets</strong><small>Two-deep roster, section finder, prices and stadium history</small>';home.appendChild(b);b.addEventListener('click',()=>activate());}
-  function activate(){if(typeof window.go==='function')window.go('fanGuide');else{document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id==='fanGuide'));document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab==='fanGuide'));window.scrollTo(0,0);}}
+  if(home){const b=document.createElement('button');b.className='feature-link';b.type='button';b.innerHTML='<span class="feature-icon">🏟🎫</span><strong>Stadium, Seats &amp; Tickets</strong><small>Section finder, ticket prices, history and team operations</small>';home.appendChild(b);b.addEventListener('click',()=>activate());}
+  function activate(){openScreen('fanGuide');}
+  function activateDepth(){openScreen('depthChart');}
+  function openScreen(id){if(typeof window.go==='function')window.go(id);else{document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));window.scrollTo(0,0);}}
+  window.openTideDepthChart=activateDepth;
+  screen.querySelectorAll('[data-open-depth]').forEach(b=>b.addEventListener('click',activateDepth));
+  depthScreen.querySelector('#openStadiumGuide').addEventListener('click',activate);
+  depthScreen.querySelectorAll('[data-depth-scroll]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.depthScroll)?.scrollIntoView({behavior:'smooth',block:'start'})));
   screen.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.jump)?.scrollIntoView({behavior:'smooth',block:'start'})));
   const sane=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   function matchingStat(name) {
@@ -152,20 +199,21 @@
     const key=Object.keys(matches).find(k=>strip(k)===strip(name));
     return key ? matches[key].join(' · ') : null;
   }
+  depthScreen.querySelector('#guideCoachesList').innerHTML=coaches.map(([name,role,unit])=>'<div class="guide-op"><b>'+sane(name)+'</b><span>'+sane(role)+'</span><small>'+sane(unit)+'</small></div>').join('');
   let activeUnit='Offense';
   function renderDepth(){
-    const q=screen.querySelector('#depthSearch').value.trim().toLowerCase();
+    const q=depthScreen.querySelector('#depthSearch').value.trim().toLowerCase();
     const rows=depth.filter(d=>d[0]===activeUnit&&d.slice(1).join(' ').toLowerCase().includes(q));
-    screen.querySelector('#guideDepthCount').textContent=rows.length+' position groups · '+activeUnit+' · published opening-week chart, Sep 4, 2026';
-    screen.querySelector('#guideDepthList').innerHTML=rows.length?rows.map(d=>{
+    depthScreen.querySelector('#guideDepthCount').textContent=rows.length+' position groups · '+activeUnit+' · published opening-week chart, Sep 4, 2026';
+    depthScreen.querySelector('#guideDepthList').innerHTML=rows.length?rows.map(d=>{
       const person=(name,label)=>{const stats=matchingStat(name);return name?'<div class="guide-person"><small>'+label+'</small><b>'+sane(name)+'</b><div class="guide-stat">'+(stats?sane(stats)+' <span style="opacity:.7">(Nov 3)</span>':'No individually verified figures in offline snapshot; check current player stats.')+'</div></div>':'';};
       return '<article class="guide-position"><h4>'+sane(d[1])+'</h4>'+person(d[2],'1st listed')+person(d[3],'2nd listed')+(d[4]?'<div class="guide-person"><small>Additional / OR</small><b>'+sane(d[4])+'</b></div>':'')+'</article>';
     }).join(''):'<p class="guide-note">No players or positions match that search in the selected unit.</p>';
   }
-  screen.querySelectorAll('[data-depth]').forEach(b=>b.addEventListener('click',()=>{
-    activeUnit=b.dataset.depth;screen.querySelectorAll('[data-depth]').forEach(btn=>btn.classList.toggle('active',btn===b));renderDepth();
+  depthScreen.querySelectorAll('[data-depth]').forEach(b=>b.addEventListener('click',()=>{
+    activeUnit=b.dataset.depth;depthScreen.querySelectorAll('[data-depth]').forEach(btn=>btn.classList.toggle('active',btn===b));renderDepth();
   }));
-  screen.querySelector('#depthSearch').addEventListener('input',renderDepth);
+  depthScreen.querySelector('#depthSearch').addEventListener('input',renderDepth);
   renderDepth();
   screen.querySelector('#guideCapacityBars').innerHTML=capacities.map(([label,n])=>'<div class="guide-capacity"><span class="year">'+label+'</span><div class="capacity-track"><span style="width:'+(n/101821*100).toFixed(1)+'%"></span></div><span class="count">'+n.toLocaleString()+'</span></div>').join('');
   screen.querySelector('#guideTickets').innerHTML=ticketRows.map(([game,lower,upper])=>'<tr><td>'+sane(game)+'</td><td>$'+lower+'</td><td>$'+upper+'</td></tr>').join('');
@@ -191,4 +239,55 @@
   }
   screen.querySelector('#seatFindButton').addEventListener('click',locateSeat);
   screen.querySelectorAll('#seatSection,#seatRow,#seatNumber').forEach(el=>el.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();locateSeat();}}));
+
+  // A new-version popup that users can reopen at any time.
+  const appVersion='1.6';
+  const appVersionDate='November 6, 2026';
+  const infoRow=document.createElement('div');
+  infoRow.className='ert-info-launch';
+  infoRow.innerHTML='<button type="button" id="ertAppInfoButton" class="ert-info-button">📖 What’s in the App? <span>V'+appVersion+'</span></button>';
+  const appHeader=document.querySelector('header.top');
+  if(appHeader)appHeader.insertAdjacentElement('afterend',infoRow);
+  const infoOverlay=document.createElement('div');
+  infoOverlay.id='ertInfoOverlay';
+  infoOverlay.className='ert-info-overlay';
+  infoOverlay.hidden=true;
+  infoOverlay.innerHTML=`
+    <div class="ert-info-dialog" role="dialog" aria-modal="true" aria-labelledby="ertInfoTitle" tabindex="-1">
+      <div class="ert-info-head"><div><small>EVERYTHING ROLL TIDE · FAN EDITION</small><h2 id="ertInfoTitle">What’s in the App?</h2><p>Version ${appVersion} · Updated ${appVersionDate}</p></div><button type="button" id="ertInfoClose" class="ert-info-close" aria-label="Close app information">✕</button></div>
+      <div class="ert-info-body">
+        <h3>Explore the app</h3>
+        <div class="ert-info-features">
+          <div>🐘 <b>Big Al</b><span>The elephant story and Alabama traditions</span></div>
+          <div>🏈 <b>1st &amp; 2nd String</b><span>Depth chart, available player stats and 2026 coaches</span></div>
+          <div>📅 <b>Season &amp; Players</b><span>Game results, schedules, and dated statistical snapshots</span></div>
+          <div>🏟 <b>Stadium Guide</b><span>Bryant–Denny history, seat-section lookup and published ticket prices</span></div>
+          <div>🩺 <b>Behind the Scenes</b><span>Trainers, medical staff, game-day support and operations</span></div>
+          <div>📣 <b>Band &amp; Cheerleaders</b><span>Million Dollar Band, traditions and game-day spirit</span></div>
+          <div>🏆 <b>History &amp; Fan Zone</b><span>Alabama history, trivia, picks and rivalry fun</span></div>
+          <div>💬 <b>Ask About Alabama</b><span>Search the built-in sourced football facts</span></div>
+        </div>
+        <h3>What changed</h3>
+        <div class="ert-info-changelog">
+          <div><strong>V1.6 · November 6, 2026</strong><p>Dedicated “1st &amp; 2nd String” page; complete listed 2026 coaching staff; original Fan Zone navigation restored; new app guide, versions and change history popup.</p></div>
+          <div><strong>V1.5</strong><p>“Why an Elephant Named Big Al?” story and quick depth-chart shortcut.</p></div>
+          <div><strong>V1.4</strong><p>Published depth chart, stadium history, approximate section finder, ticket guide and team operations.</p></div>
+          <div><strong>V1.3</strong><p>Elephant origin story and a smarter Alabama football question library.</p></div>
+          <div><strong>V1.2 and earlier</strong><p>Game-day intelligence, traditions, schedules, player cards, history and Fan Zone.</p></div>
+        </div>
+        <p class="ert-info-fine">Player stats and depth-chart listings are dated snapshots, <b>not live automatic updates</b>. Ticket prices are published face prices, not live availability. Unofficial fan project, not endorsed by Alabama Athletics.</p>
+      </div>
+      <div class="ert-info-foot"><button type="button" id="ertInfoDone" class="btn">Got it — Roll Tide!</button></div>
+    </div>`;
+  document.body.appendChild(infoOverlay);
+  const seenKey='everything-roll-tide.info-last-seen';
+  let previousFocus=null;
+  function showAppInfo(){previousFocus=document.activeElement;infoOverlay.hidden=false;document.body.classList.add('ert-info-open');infoOverlay.querySelector('#ertInfoClose').focus();}
+  function closeAppInfo(){infoOverlay.hidden=true;document.body.classList.remove('ert-info-open');try{localStorage.setItem(seenKey,appVersion)}catch(e){};if(previousFocus&&typeof previousFocus.focus==='function')previousFocus.focus();}
+  infoRow.querySelector('#ertAppInfoButton').addEventListener('click',showAppInfo);
+  infoOverlay.querySelector('#ertInfoClose').addEventListener('click',closeAppInfo);
+  infoOverlay.querySelector('#ertInfoDone').addEventListener('click',closeAppInfo);
+  infoOverlay.addEventListener('click',e=>{if(e.target===infoOverlay)closeAppInfo()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!infoOverlay.hidden)closeAppInfo();else if(e.key==='Tab'&&!infoOverlay.hidden){const a=infoOverlay.querySelector('#ertInfoClose'),b=infoOverlay.querySelector('#ertInfoDone');if(e.shiftKey&&document.activeElement===a){e.preventDefault();b.focus()}else if(!e.shiftKey&&document.activeElement===b){e.preventDefault();a.focus()}}});
+  try{if(localStorage.getItem(seenKey)!==appVersion)setTimeout(showAppInfo,450)}catch(e){}
 })();
