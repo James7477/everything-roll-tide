@@ -96,6 +96,10 @@
     .answer a{font-size:13px;font-weight:800;color:#ffbdcc}
     .answer .answer-source-note{display:block;margin-top:9px;color:#acb5c3;font-size:11px}
     @media (max-width:680px){.elephant-story .story-grid{grid-template-columns:1fr}.elephant-story{padding:16px}.hero-actions #elephantToggle{width:100%;justify-content:center}}
+    /* V1.5: stacked homepage entry points for Big Al and the depth chart */
+    .hero-quicklinks{display:flex;flex:1 1 248px;max-width:320px;flex-direction:column;gap:9px}
+    .hero-quicklinks .btn{width:100%;min-height:46px;white-space:normal;line-height:1.3;justify-content:center;text-align:center}
+    @media(max-width:680px){.hero-quicklinks{max-width:none;flex:1 1 100%}}
   </style>
 <link rel="stylesheet" href="fan-guide.css" />
 </head>
@@ -113,18 +117,18 @@
   <section class="screen active" id="home">
    <div class="hero">
       <div class="hero-art"><img src="data:," alt="Powerful tusked elephant wearing a crimson football jersey under stadium lights" fetchpriority="high" /></div>
-      <div class="hero-content"><div class="eyebrow">Tuscaloosa, Alabama · Since 1892</div><h1>Everything<br>Roll Tide.</h1><p>Alabama football. All season long. The history, the players, the games, and the rivalry that never gets old.</p><div class="hero-actions"><button class="btn" data-goto="schedule">🏈 Explore the season</button><button class="btn outline" data-goto="fun">🔥 Fan Zone</button><button class="btn outline" type="button" id="elephantToggle" aria-controls="elephantStory" aria-expanded="false">🐘 Why the Elephant?</button></div></div>
+      <div class="hero-content"><div class="eyebrow">Tuscaloosa, Alabama · Since 1892</div><h1>Everything<br>Roll Tide.</h1><p>Alabama football. All season long. The history, the players, the games, and the rivalry that never gets old.</p><div class="hero-actions"><button class="btn" data-goto="schedule">🏈 Explore the season</button><button class="btn outline" data-goto="fun">🔥 Fan Zone</button><div class="hero-quicklinks"><button class="btn outline" type="button" id="elephantToggle" aria-controls="elephantStory" aria-expanded="false">🐘 Why an Elephant Named Big Al?</button><button class="btn outline" type="button" id="depthChartQuickLink" aria-label="Open Alabama first and second string depth chart">🏈 1st &amp; 2nd String</button></div></div></div>
      </div>
 
    <section class="elephant-story" id="elephantStory" hidden aria-labelledby="elephantStoryTitle">
-     <h2 id="elephantStoryTitle">🐘 Why is Alabama's mascot an elephant?</h2>
+     <h2 id="elephantStoryTitle">🐘 Why an elephant named Big Al?</h2>
      <p>The team is called the <b>Crimson Tide</b>, but its famous elephant represents a story about the power of Alabama football.</p>
      <div class="story-grid">
        <article class="story-tile"><b>1930 · The Red Elephants</b><p>During Alabama's game against Ole Miss, the enormous varsity squad impressed the crowd. A fan reportedly called out, “Hold your horses, the elephants are coming!” Sportswriter Everett Strupper retold the scene, and writers began calling the crimson-clad players the <b>Red Elephants</b>.</p></article>
-       <article class="story-tile"><b>1979 · Big Al Arrives</b><p>The elephant symbol became part of Alabama tradition decades before the familiar costume. According to the university, the costumed mascot <b>Big Al</b> debuted at the 1979 Sugar Bowl. There are other early elephant stories, too; the 1930 account is the one Alabama Athletics tells.</p></article>
+       <article class="story-tile"><b>1979 · Why the name Big Al?</b><p>Students chose <b>Big Al</b> in a campus vote. The University of Alabama's student traditions guide says the name also honored well-known campus DJ <b>Al Brown</b>. The official costumed Big Al made his debut at the 1979 Sugar Bowl, long after the football team was nicknamed the Red Elephants.</p></article>
        <article class="story-tile"><b>The Band &amp; Cheerleaders</b><p>Yes! Big Al is Alabama's university mascot, not a separate mascot for each group. The <b>Million Dollar Band</b> and cheerleaders share that spirit. They're part of the <b>Elephant Stomp</b>, a pregame gathering at Gorgas Library where the band performs and cheerleaders lead fans.</p></article>
      </div>
-     <div class="story-links"><a href="https://rolltide.com/sports/2016/6/10/big-al" target="_blank" rel="noopener">Alabama Athletics: Big Al's history ↗</a><a href="https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/" target="_blank" rel="noopener">UA: Elephant Stomp &amp; Million Dollar Band ↗</a><button class="btn secondary" id="elephantAsk" type="button">Ask another Alabama history question →</button></div>
+     <div class="story-links"><a href="https://rolltide.com/sports/2016/6/10/big-al" target="_blank" rel="noopener">Alabama Athletics: Big Al's history ↗</a><a href="https://abook.sa.ua.edu/ua-traditions/history/big-al/" target="_blank" rel="noopener">UA: How Big Al got his name ↗</a><a href="https://abook.sa.ua.edu/ua-traditions/history/million-dollar-band/" target="_blank" rel="noopener">UA: Elephant Stomp &amp; Million Dollar Band ↗</a><button class="btn secondary" id="elephantAsk" type="button">Ask another Alabama history question →</button></div>
    </section>
    <aside class="dedication" aria-label="Dedication to the fans"><div class="dedication-label">🐘 A Special Dedication 🐘</div><p>Dedicated to the fans who share a lifelong love for Alabama football. Through every touchdown, every rivalry, every victory, and every tough Saturday — Roll Tide Roll!</p><div class="dedication-signoff">ROLL TIDE ROLL</div></aside>
    <section class="section"><div class="section-heading"><h2>2026 Tide Tracker</h2><span class="subtle">Updated snapshot · Nov 3, 2026</span></div><div class="grid">
@@ -338,8 +342,13 @@ elephantToggle.addEventListener('click',()=>{
   const show=elephantStory.hidden;
   elephantStory.hidden=!show;
   elephantToggle.setAttribute('aria-expanded',String(show));
-  elephantToggle.textContent=show?'🐘 Hide the Elephant Story':'🐘 Why the Elephant?';
+  elephantToggle.textContent=show?'🐘 Hide Big Al’s Story':'🐘 Why an Elephant Named Big Al?';
   if(show)elephantStory.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('depthChartQuickLink').addEventListener('click',()=>{
+  if(!document.getElementById('fanGuide')){window.alert('The Fan Guide could not load. Please refresh the page and try again.');return;}
+  go('fanGuide');
+  requestAnimationFrame(()=>document.getElementById('guide-depth')?.scrollIntoView({behavior:'smooth',block:'start'}));
 });
 document.getElementById('elephantAsk').addEventListener('click',()=>{
   go('history');document.getElementById('askQuestion').value='Why does Alabama have an elephant mascot?';ask();
