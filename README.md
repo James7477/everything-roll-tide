@@ -1,8 +1,22 @@
-# Everything Roll Tide — V1.4 · Fan Guide
+# Everything Roll Tide — V1.6 · Depth Chart & App Updates
 
-Football-only unofficial Alabama fan companion. Designed and built by James Meadows.
+Football-only, unofficial Alabama fan companion. Built by James Meadows.
 
-## V1.4 · Fan Guide (November 5, 2026)
+## V1.6 · November 6, 2026
+
+- **1st & 2nd String has its own page.** The homepage shortcut and new top navigation entry open only the dedicated two-deep and coaching-staff screen, rather than the whole Stadium Guide. It has offense, defense, special teams, search, and individual stats when verified.
+- **2026 Alabama coaching staff:** 14 coaches with listed roles, as published by Alabama Athletics at https://rolltide.com/sports/football/coaches/2026 . Read from that source as of November 6, 2026; staff may change.
+- **Fan Zone stays in its original place.** Removed the extra bottom-navigation entry that was squeezing the original fan sections. The separate Stadium Guide remains available through the homepage feature tile.
+- **What's in the App?** A persistent button opens a modal explaining every major app feature, release number, release date and version-by-version changes. It appears automatically once per newly released app version, tracked locally in the browser. Users can dismiss or reopen it.
+- **Existing app preserved:** Big Al elephant homepage, dedication, builder credit, trivia, schedule, stadium section locator, tickets and medical/operations pages remain.
+- **Accuracy note:** September 4 depth chart and November 3 player statistics are dated snapshots, NOT auto-updating live starters or stats. 2026 ticket prices are published face prices, NOT real-time offers.
+
+## V1.5 · Big Al & depth-chart shortcut
+
+- Changed the homepage history link to “Why an Elephant Named Big Al?” and added the name story.
+- Added a “1st & 2nd String” homepage button beneath that link.
+
+## V1.4 · Stadium and Fan Guide
 
 - **First- and second-string depth chart:** opening-week chart published September 4, 2026; offense, defense and special teams. Some positions were co-listed as OR. The lineup is not a current injury report.
 - **Player statistics:** verified figures from the November 3 snapshot where available, with links to updated statistics. Missing figures do not mean zero. Automatic updates require a validated data service, not yet enabled.
