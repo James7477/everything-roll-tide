@@ -346,8 +346,8 @@ elephantToggle.addEventListener('click',()=>{
   if(show)elephantStory.scrollIntoView({behavior:'smooth',block:'start'});
 });
 document.getElementById('depthChartQuickLink').addEventListener('click',()=>{
-  if(!document.getElementById('fanGuide')){window.alert('The Fan Guide could not load. Please refresh the page and try again.');return;}
-  go('fanGuide');
+  if(typeof window.openTideDepthChart!=='function'){window.alert('The 1st & 2nd String page could not load. Please refresh the app and try again.');return;}
+  window.openTideDepthChart();
   requestAnimationFrame(()=>document.getElementById('guide-depth')?.scrollIntoView({behavior:'smooth',block:'start'}));
 });
 document.getElementById('elephantAsk').addEventListener('click',()=>{
