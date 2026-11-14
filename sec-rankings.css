@@ -29,3 +29,33 @@
 .ert-game-ranking a{color:#ffb9d0;margin-left:auto}
 .ert-game-ranking .ert-vs{color:#d7a6b8}
 @media(max-width:680px){.ert-sec-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.ert-sec-overview>div{padding:11px 8px}.ert-sec-overview strong{font-size:24px}.ert-sec-overview small{font-size:10px}.ert-sec-overview span{font-size:10px}.ert-sec-table td{padding:11px 7px;font-size:12px}.ert-sec-table th{padding:11px 7px;font-size:11px}.ert-game-ranking a{margin-left:0}.ert-sec-schedule-link button{width:100%}}
+
+/* V1.9 phone-width repair: every SEC column and header fits without sideways scrolling. */
+.ert-sec-table th,.ert-sec-table td{vertical-align:middle}
+.ert-sec-team{overflow-wrap:break-word;hyphens:auto;white-space:normal}
+@media(max-width:700px){
+  #secRankings,.ert-sec-table-wrap{min-width:0;max-width:100%}
+  .ert-sec-table-wrap{overflow-x:visible}
+  .ert-sec-table{width:100%;min-width:0;max-width:100%;table-layout:fixed}
+  .ert-sec-table th,.ert-sec-table td{padding:10px 4px;font-size:clamp(10px,2.75vw,12px);line-height:1.35;letter-spacing:0}
+  .ert-sec-table th{font-size:clamp(9px,2.65vw,11px);white-space:normal}
+  .ert-sec-table th:nth-child(1){width:9%}
+  .ert-sec-table th:nth-child(2){width:34%}
+  .ert-sec-table th:nth-child(3){width:15%}
+  .ert-sec-table th:nth-child(4){width:16%}
+  .ert-sec-table th:nth-child(5){width:12%}
+  .ert-sec-table th:nth-child(6){width:14%}
+  .ert-sec-table td:first-child{font-size:10px;padding-left:3px;padding-right:2px;white-space:normal}
+  .ert-sec-table td:nth-child(2){font-size:clamp(10px,2.8vw,12px);font-weight:850;line-height:1.25}
+  .ert-sec-table td:nth-child(n+3){white-space:nowrap}
+  .ert-sec-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .ert-sec-overview>div{padding:12px 8px}
+  .ert-sec-overview small,.ert-sec-overview span{overflow-wrap:break-word;line-height:1.35}
+  .ert-sec-footnote,.ert-sec-sources{overflow-wrap:anywhere}
+}
+@media(max-width:345px){
+  .ert-sec-table th,.ert-sec-table td{padding-left:2px;padding-right:2px}
+  .ert-sec-table td:nth-child(2){font-size:10px}
+  .ert-sec-overview>div{padding:10px 6px}
+  .ert-sec-overview strong{font-size:23px}
+}
