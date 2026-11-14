@@ -55,7 +55,7 @@ function render(){
  details.innerHTML=html;
 }
 let today;
-try{today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
+try{const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const find=k=>parts.find(x=>x.type===k).value;today=find('year')+'-'+find('month')+'-'+find('day');}
 catch(e){today=new Date().toISOString().slice(0,10);}
 const next=matchupData.find(x=>x.iso>=today)||matchupData[matchupData.length-1];
 selector.value=next.id;selector.addEventListener('change',render);render();
