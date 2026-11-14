@@ -241,7 +241,7 @@
   screen.querySelectorAll('#seatSection,#seatRow,#seatNumber').forEach(el=>el.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();locateSeat();}}));
 
   // A new-version popup that users can reopen at any time.
-  const appVersion='1.8';
+  const appVersion='1.9';
   const appVersionDate='November 14, 2026';
   const infoRow=document.createElement('div');
   infoRow.className='ert-info-launch';
@@ -271,6 +271,7 @@
         </div>
         <h3>What changed</h3>
         <div class="ert-info-changelog">
+          <div><strong>V1.9 · November 14, 2026</strong><p>Mobile readability audit: SEC conference-ranking table now fits all six headers and columns on narrow phones; betting cards wrap long team and line labels; footer version and dated-stat explanations corrected. Existing pages and navigation preserved.</p></div>
           <div><strong>V1.8 · November 14, 2026</strong><p>Added Game Day Matchup Pulse on the schedule with an ESPN Analytics win estimate and published DraftKings betting-market splits. Future matchups show no fabricated figures; links provide source updates. All odds are dated snapshots, not a live feed.</p></div>
           <div><strong>V1.7 · November 14, 2026</strong><p>Added a complete 16-team SEC standings list with AP and CFP national rankings; game-week AP rankings for Alabama and opponents on the schedule; updated the LSU result, Alabama record and next-game countdown. All rankings are dated snapshots.</p></div>
           <div><strong>V1.6 · November 6, 2026</strong><p>Dedicated “1st &amp; 2nd String” page; complete listed 2026 coaching staff; original Fan Zone navigation restored; new app guide, versions and change history popup.</p></div>
