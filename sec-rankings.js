@@ -104,7 +104,9 @@
       if(card.dataset.ertRanked==='yes')return;
       var dateEl=card.querySelector('.gamedate'),opponentEl=card.querySelector('.opponent');
       if(!dateEl || !opponentEl)return;
-      var dateKey=dateEl.textContent.trim().slice(0,6);
+      // Original game cards uppercase the month, while the archive uses title-case keys.
+      var displayDate=dateEl.textContent.trim().slice(0,6);
+      var dateKey=displayDate.charAt(0)+displayDate.slice(1).toLowerCase();
       var opponent=opponentEl.textContent.trim();
       var poll=pollForGames[dateKey];
       var info=document.createElement('div');
