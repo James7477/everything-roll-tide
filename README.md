@@ -1,6 +1,25 @@
-# Everything Roll Tide — V1.6 · Depth Chart & App Updates
+# Everything Roll Tide — V1.8 · SEC Rankings & Game Day Matchup Pulse
 
-Football-only, unofficial Alabama fan companion. Built by James Meadows.
+Football-only unofficial Alabama fan companion. Built by James Meadows.
+
+## V1.8 · November 14, 2026
+
+- **Game Day Matchup Pulse:** The Schedule page now includes an ESPN Analytics pregame win estimate and published DraftKings betting-market numbers, with each source linked.
+- **Bets vs. money:** displays both the percentage of individual wagers and the percentage of money wagered for the moneyline, point spread, and game total. These market splits are not win probabilities.
+- **Vanderbilt reference:** Pre-game Alabama win estimate of 94.8% (ESPN Analytics) and DraftKings public market snapshot taken Nov 14, 2026 around 11:05 AM Eastern. Betting figures can change, and this version does not automatically pull new markets.
+- **Future matchups:** Chattanooga and Auburn selectors show "not verified" rather than invented probabilities or betting lines. The publisher-source links allow manual checks.
+- **Historical safeguards:** After a listed kickoff, the V1.8 pregame data is labeled archival, not a live forecast. The app displays informational figures only and does not accept wagers.
+- **Original features preserved:** Fan Zone, Big Al, first and second strings, coaching staff, stadium tickets and section finder, and the "What's in the App?" version popup.
+
+Sources:
+- ESPN Alabama–Vanderbilt game: https://www.espn.com/college-football/game/_/gameId/401856889/alabama-vanderbilt
+- DraftKings public betting splits: https://dknetwork.draftkings.com/draftkings-sportsbook-betting-splits/
+
+## V1.7 · November 14, 2026
+
+- **SEC Standings:** Conference standings list for all 16 teams, with record, AP rank and CFP rank in a dated snapshot.
+- **Rankings on schedule:** game-week AP ranks for Alabama and opponents, where available in the sourced poll snapshot.
+- **Results refresh:** LSU Nov 7 result and Alabama's Nov 14 pre-kickoff 7–2 overall record and next-game countdown corrected.
 
 ## V1.6 · November 6, 2026
 
