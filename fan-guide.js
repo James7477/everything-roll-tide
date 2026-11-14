@@ -241,7 +241,7 @@
   screen.querySelectorAll('#seatSection,#seatRow,#seatNumber').forEach(el=>el.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();locateSeat();}}));
 
   // A new-version popup that users can reopen at any time.
-  const appVersion='1.7';
+  const appVersion='1.8';
   const appVersionDate='November 14, 2026';
   const infoRow=document.createElement('div');
   infoRow.className='ert-info-launch';
@@ -262,6 +262,7 @@
           <div>🏈 <b>1st &amp; 2nd String</b><span>Depth chart, available player stats and 2026 coaches</span></div>
           <div>📅 <b>Season &amp; Players</b><span>Game results, schedules, and dated statistical snapshots</span></div>
           <div>🏆 <b>SEC Rankings</b><span>All 16 conference teams, AP and CFP rankings, and AP ranks on game-day schedules</span></div>
+          <div>🎯 <b>Game Day Matchup Pulse</b><span>Win predictions, spreads, over/under, moneylines and public betting splits; dated and sourced</span></div>
           <div>🏟 <b>Stadium Guide</b><span>Bryant–Denny history, seat-section lookup and published ticket prices</span></div>
           <div>🩺 <b>Behind the Scenes</b><span>Trainers, medical staff, game-day support and operations</span></div>
           <div>📣 <b>Band &amp; Cheerleaders</b><span>Million Dollar Band, traditions and game-day spirit</span></div>
@@ -270,6 +271,7 @@
         </div>
         <h3>What changed</h3>
         <div class="ert-info-changelog">
+          <div><strong>V1.8 · November 14, 2026</strong><p>Added Game Day Matchup Pulse on the schedule with an ESPN Analytics win estimate and published DraftKings betting-market splits. Future matchups show no fabricated figures; links provide source updates. All odds are dated snapshots, not a live feed.</p></div>
           <div><strong>V1.7 · November 14, 2026</strong><p>Added a complete 16-team SEC standings list with AP and CFP national rankings; game-week AP rankings for Alabama and opponents on the schedule; updated the LSU result, Alabama record and next-game countdown. All rankings are dated snapshots.</p></div>
           <div><strong>V1.6 · November 6, 2026</strong><p>Dedicated “1st &amp; 2nd String” page; complete listed 2026 coaching staff; original Fan Zone navigation restored; new app guide, versions and change history popup.</p></div>
           <div><strong>V1.5</strong><p>“Why an Elephant Named Big Al?” story and quick depth-chart shortcut.</p></div>
@@ -277,7 +279,7 @@
           <div><strong>V1.3</strong><p>Elephant origin story and a smarter Alabama football question library.</p></div>
           <div><strong>V1.2 and earlier</strong><p>Game-day intelligence, traditions, schedules, player cards, history and Fan Zone.</p></div>
         </div>
-        <p class="ert-info-fine">Rankings, player stats and depth-chart listings are dated snapshots, <b>not live automatic updates</b>. Ticket prices are published face prices, not live availability. Unofficial fan project, not endorsed by Alabama Athletics.</p>
+        <p class="ert-info-fine">Win predictions, betting-market figures, rankings, player stats and depth-chart listings are dated snapshots, <b>not live automatic updates</b>. Odds can change; this fan app does not take bets. Ticket prices are published face prices, not live availability. Unofficial fan project, not endorsed by Alabama Athletics.</p>
       </div>
       <div class="ert-info-foot"><button type="button" id="ertInfoDone" class="btn">Got it — Roll Tide!</button></div>
     </div>`;
