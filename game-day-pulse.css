@@ -30,3 +30,18 @@
 .ert-pulse-explain{border-top:1px solid #4b394b;margin-top:16px;padding-top:13px;color:#bfc7d5;font-size:11px;line-height:1.7}
 .ert-pulse-jump{background:#7c2546;border:1px solid #d57599;color:white;border-radius:10px;padding:10px 13px;font-weight:800}
 @media(max-width:690px){.ert-pulse{padding:13px}.ert-pulse-columns{grid-template-columns:1fr}.ert-pulse-market-card{padding:12px}.ert-pulse-market-side{display:flex;align-items:center;justify-content:space-between;gap:10px}.ert-pulse-market-side span{white-space:nowrap;text-align:right}.ert-pulse-picker select{width:100%}}
+
+/* V1.9 readability patch: long sportsbook labels wrap instead of crowding percentages. */
+.ert-pulse-market-side b,.ert-pulse-market-side span{overflow-wrap:break-word;min-width:0}
+@media(max-width:700px){
+  .ert-pulse-market-side{flex-wrap:wrap;align-items:flex-start;gap:3px 10px}
+  .ert-pulse-market-side b{flex:1 1 125px;font-size:12px}
+  .ert-pulse-market-side span{flex:1 1 112px;white-space:normal;text-align:right;font-size:11px}
+  .ert-pulse-chances{font-size:clamp(11px,3.4vw,14px)}
+  .ert-pulse-links{align-items:stretch}
+  .ert-pulse-links a{flex:1 1 130px;text-align:center;line-height:1.5}
+  .ert-pulse-explain{font-size:12px}
+}
+@media(max-width:350px){
+  .ert-pulse-market-side b,.ert-pulse-market-side span{flex-basis:100%;text-align:left}
+}
