@@ -1,0 +1,31 @@
+/* Everything Roll Tide V1.7 SEC and game-week rankings */
+.ert-sec-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.ert-sec-overview>div{background:linear-gradient(135deg,#48203a,#1b202d);border:1px solid #75475d;border-radius:14px;padding:16px;min-width:0}
+.ert-sec-overview small{color:#e2b3c4;font-size:12px;display:block}
+.ert-sec-overview strong{display:block;color:#fff;font-size:30px;margin:6px 0}
+.ert-sec-overview span{color:#d1c2cc;font-size:11px}
+.ert-sec-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:15px 0}
+.ert-sec-controls label{font-size:13px;color:#f2c5d3;font-weight:800}
+.ert-sec-controls input{min-width:180px;flex:1 1 200px;background:#202431;color:#fff;border:1px solid #896078;border-radius:10px;padding:11px}
+.ert-sec-controls button,.ert-sec-schedule-link button{background:#b82554;border:1px solid #eb7297;color:white;border-radius:10px;padding:11px 13px;font-weight:800}
+.ert-sec-table-wrap{overflow-x:auto;border:1px solid #3c3c4d;border-radius:14px}
+.ert-sec-table{border-collapse:collapse;width:100%;min-width:475px;font-variant-numeric:tabular-nums}
+.ert-sec-table th{padding:12px 10px;background:#38182a;color:#ffe9f1;letter-spacing:.2px;text-align:right;font-size:12px}
+.ert-sec-table th:nth-child(2){text-align:left}
+.ert-sec-table td{padding:12px 10px;border-top:1px solid #30343f;text-align:right;font-size:13px}
+.ert-sec-table td:nth-child(2){text-align:left;font-weight:800}
+.ert-sec-table tbody tr:nth-child(even){background:#1b202a}
+.ert-sec-table tr.ert-sec-alabama{background:#5a1633}
+.ert-sec-table tr.ert-sec-alabama td{color:#fff5e6;font-weight:850}
+.ert-sec-footnote{font-size:12px;line-height:1.6;color:#c2cad8;padding:13px 0}
+.ert-sec-sources{display:flex;flex-wrap:wrap;gap:10px}
+.ert-sec-sources a{font-size:12px;color:#ffbacc}
+.ert-sec-schedule-link{border:1px solid #8c3b56;background:linear-gradient(100deg,#42192e,#1e202e);border-radius:13px;padding:13px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 20px}
+.ert-sec-schedule-link strong{color:#fff}
+.ert-sec-schedule-link span{color:#ebc4d0;font-size:12px;flex:1 1 180px}
+.ert-game-ranking{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-top:7px;padding:7px 9px;border-radius:9px;background:#3b2031;color:#fff5fa;font-size:11px;line-height:1.5}
+.ert-game-ranking-label{color:#f1c4d5;font-weight:700}
+.ert-game-ranking strong{color:#fff;font-size:12px}
+.ert-game-ranking a{color:#ffb9d0;margin-left:auto}
+.ert-game-ranking .ert-vs{color:#d7a6b8}
+@media(max-width:680px){.ert-sec-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.ert-sec-overview>div{padding:11px 8px}.ert-sec-overview strong{font-size:24px}.ert-sec-overview small{font-size:10px}.ert-sec-overview span{font-size:10px}.ert-sec-table td{padding:11px 7px;font-size:12px}.ert-sec-table th{padding:11px 7px;font-size:11px}.ert-game-ranking a{margin-left:0}.ert-sec-schedule-link button{width:100%}}
