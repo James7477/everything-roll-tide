@@ -1,3 +1,15 @@
+# Everything Roll Tide — V1.9 · Mobile Readability Fixes
+
+Football-only unofficial Alabama fan companion. Built by James Meadows.
+
+## V1.9 · November 14, 2026
+
+- **SEC standings phone fix:** Removed the 475-pixel minimum table width on screens at most 700 pixels wide. All six columns—conference position, team, SEC record, overall record, AP rank and CFP rank—fit across the screen without horizontal swiping. Shorter accessible headings (#, Team, SEC, OVR, AP, CFP), and long school names wrap.
+- **Game Day betting card fix:** Team names, betting lines and bets/money percentages wrap on narrow phones rather than clipping.
+- **Version accuracy:** Footer and the What's in the App pop-up show V1.9 and record the changes; the dated player-stat snapshot remains identified separately from newer game standings.
+- **QA:** Representative local pages checked at 320, 360, 390, 768 and 1024px: no document-level sideways overflow and no JavaScript page errors in the available local V1.4 test fixture. SEC table's new layout independently exercised at 320, 344, 360, 390, 650, 768 and 1280px. Current GitHub JavaScript separately syntax-checked. Live deployed GitHub Pages not browser-tested in this environment.
+- Big Al, Fan Zone, 1st & 2nd String, SEC rankings, game-day pulse, coaching staff, stadium and tickets were preserved.
+
 # Everything Roll Tide — V1.8 · SEC Rankings & Game Day Matchup Pulse
 
 Football-only unofficial Alabama fan companion. Built by James Meadows.
