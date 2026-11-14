@@ -1,0 +1,32 @@
+/* Everything Roll Tide V1.8 — Game Day Matchup Pulse */
+.ert-pulse{border:1px solid #99506b;background:linear-gradient(142deg,#311827,#141923 60%,#241824);border-radius:18px;padding:19px;margin:20px 0 23px;box-shadow:0 16px 38px #0004;min-width:0}
+.ert-pulse-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:9px}
+.ert-pulse-head h2{font-size:clamp(21px,3.6vw,27px);margin:0;color:#fff}
+.ert-pulse-head p{margin:7px 0 0;color:#dcb7c8;font-size:12px}
+.ert-pulse-stamp{border:1px solid #81506b;background:#462038;color:#ffdae7;border-radius:40px;padding:7px 11px;font-size:11px;font-weight:800}
+.ert-pulse-picker{display:flex;align-items:center;gap:10px;margin:16px 0;flex-wrap:wrap}
+.ert-pulse-picker label{font-weight:800;font-size:13px;color:#f5e4ef}
+.ert-pulse-picker select{flex:1 1 210px;background:#232837;color:white;border:1px solid #9c5b78;padding:11px;border-radius:12px}
+.ert-pulse-match{font-size:15px;font-weight:850;color:#fff5f7;margin:15px 0 10px}
+.ert-pulse-warning{padding:9px 12px;border-left:3px solid #e6a07d;background:#382b27;color:#ffe5cf;border-radius:4px 10px 10px 4px;font-size:12px;margin:9px 0}
+.ert-pulse-prediction{background:#1d2633;border:1px solid #43445e;border-radius:14px;padding:14px;margin:13px 0}
+.ert-pulse-prediction h3,.ert-pulse-market h3{font-size:17px;margin:0 0 10px;color:#fff}
+.ert-pulse-chances{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:900;color:#fff}
+.ert-pulse-meter{margin:9px 0 8px;height:15px;display:flex;background:#5b6072;border-radius:40px;overflow:hidden}
+.ert-pulse-meter span{display:block;background:linear-gradient(90deg,#b31e4f,#ee6187)}
+.ert-pulse-micro{font-size:11px;line-height:1.55;color:#bfc7d5;margin:8px 0 0}
+.ert-pulse-market{margin-top:14px}
+.ert-pulse-source{font-size:11px;color:#e4b8c7;margin:4px 0 12px}
+.ert-pulse-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ert-pulse-market-card{min-width:0;border:1px solid #4c4757;background:#23232f;border-radius:12px;padding:12px}
+.ert-pulse-market-card h4{margin:0 0 9px;color:#f9d1df;font-size:13px}
+.ert-pulse-market-side{padding:8px 0}
+.ert-pulse-market-side+.ert-pulse-market-side{border-top:1px solid #45404f}
+.ert-pulse-market-side b{display:block;font-size:13px;color:white;line-height:1.35}
+.ert-pulse-market-side span{display:block;color:#c7d0da;font-size:11px;margin-top:3px}
+.ert-pulse-links{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0 0}
+.ert-pulse-links a{padding:8px 10px;border-radius:9px;border:1px solid #825167;color:#ffd1e1;font-size:12px;text-decoration:none;font-weight:800}
+.ert-pulse-empty{padding:20px;border-radius:12px;background:#222331;border:1px solid #414353;color:#dfe3ea;font-size:14px;line-height:1.65}
+.ert-pulse-explain{border-top:1px solid #4b394b;margin-top:16px;padding-top:13px;color:#bfc7d5;font-size:11px;line-height:1.7}
+.ert-pulse-jump{background:#7c2546;border:1px solid #d57599;color:white;border-radius:10px;padding:10px 13px;font-weight:800}
+@media(max-width:690px){.ert-pulse{padding:13px}.ert-pulse-columns{grid-template-columns:1fr}.ert-pulse-market-card{padding:12px}.ert-pulse-market-side{display:flex;align-items:center;justify-content:space-between;gap:10px}.ert-pulse-market-side span{white-space:nowrap;text-align:right}.ert-pulse-picker select{width:100%}}
